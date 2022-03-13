@@ -1,0 +1,77 @@
+
+@theme "/dev/null"
+@import "/home/katsuki/colorstuff/levuaska/colors-rofi-dark"
+
+/* * { */
+  /* bg:			#1A1826; */
+  /* fg:			#D9E0EE; */
+  /* button:		#f5c2e7; */
+  /* background-color:	@bg; */
+  /* text-color:		@fg;  */
+/* } */
+
+window {
+  transparency:		"real";
+  width:		350;
+  height:		430;
+  border:               0;
+  border-color:         @background;
+  text-color:			@foreground;
+}
+
+mainbox {
+  padding:              10;
+}
+
+prompt {
+  margin:               0;
+  padding:		0;
+  font:			"Roboto Mono 0.001";
+  border-radius:	0;
+  expand:               false;
+}
+
+inputbar {
+  margin:               0 0 10 0;
+  children:		[ prompt ];
+  background-image:	url("/tmp/cover.png");
+  expand:		false;
+  border-radius:	7;
+
+  padding:		131 130 195 130;
+  vertical-aling:       0.5;
+  horizontal-align:     0.5;
+}
+
+listview {
+  cycle:		true;
+  layout:		horizontal; 
+  padding:		0;
+  margin:               0;
+  vertical-aling:       0.5;
+  horizontal-align:     0.5;
+}
+
+mainbox { children: [ inputbar, listview ]; }
+
+element {
+  text-color:		@foreground;
+  margin: 1 2 5 0;
+  border-radius:	7;
+}
+
+element-text {
+  width:                62;
+  height:               70;
+  padding:		15;
+  font:			"Font Awesome 6 Free 25";
+  /* font:                "Roboto Mono 20"; */
+  background-color:	inherit;
+  text-color:		inherit;
+  vertical-aling:       0.5;
+  horizontal-align:     0.5;
+}
+#element.selected.normal {
+  background-color:	@selected-active-background;
+  text-color:		@selected-active-foreground;
+}

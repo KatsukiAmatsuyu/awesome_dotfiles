@@ -1,0 +1,17 @@
+#!/bin/sh
+
+editor="nvim"
+term="kitty"
+eww="eww close-all"
+
+
+if [[ "$1" == "bspwmrc" ]]; then
+    $eww && $term $editor $HOME/.config/bspwm/bspwmrc	
+elif [[ "$1" == "eww_yuck" ]]; then
+    $eww && $term $editor $HOME/.config/eww/eww.yuck	
+elif [[ "$1" == "vimrc" ]]; then
+    $eww && $term $editor $HOME/.config/nvim/init.lua	
+elif [[ "$1" == "gtk" ]]; then
+	$eww && lxappearance
+fi
+

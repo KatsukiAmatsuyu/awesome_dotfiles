@@ -1,0 +1,96 @@
+		;;  time 
+		(defwindow time  :focusable "false" :screen 1 
+			    :geometry (geometry :x 14 :y 437 :width 266 :height 102)
+			     				(time))
+		;;  weather 
+		;;(defwindow weather  :focusable "false" :screen 1 
+		;;	    :geometry (geometry :x 287 :y 100 :width 105 :height 10)
+		;;	     				(weather))
+
+
+		;;  day/month?
+		(defwindow day_month  :focusable "false" :screen 1 
+			    :geometry (geometry :x 287 :y 437 :width 427 :height 15)
+			     				(day_month))
+
+
+		;;  quote
+		(defwindow quote  :focusable "false" :screen 1 
+			    :geometry (geometry :x 287 :y 553 :width 427 :height 90)
+			     				(quote))
+
+		;;  profile 
+		(defwindow profile  :focusable "false" :screen 1 
+			    :geometry (geometry :x 14 :y 546 :width 266 :height 270)
+			     				(profile))
+
+
+		;;  music 
+		(defwindow music  :focusable "false" :screen 1 
+			    :geometry (geometry :x 287 :y 650 :width 428 :height 194)
+			     				(music))
+
+
+		;;  system 
+		(defwindow system  :focusable "false" :screen 1 
+			    :geometry (geometry :x 14 :y 823 :width 266 :height 196)
+			     				(system))
+
+
+
+		;;  circular cpu thing 
+		(defwindow cpu_radial  :focusable "false" :screen 1 
+			    :geometry (geometry :x 287 :y 881 :width 138 :height 138)
+			     				(cpu_radial))
+
+        ;; circular memory thing
+		(defwindow mem_radial  :focusable "false" :screen 1 
+			    :geometry (geometry :x 432 :y 881 :width 138 :height 138)
+			     				(mem_radial))
+
+        ;; circular battery thing
+		(defwindow bat_radial  :focusable "false" :screen 1 
+			    :geometry (geometry :x 577 :y 881 :width 138 :height 138)
+			     				(bat_radial))
+
+
+
+        ;; fetch hmm
+		(defwindow fetch_lol  :focusable "false" :screen 1 
+			    :geometry (geometry :x 722 :y 437 :width 205 :height 288)
+			     				(fetch_sys))
+
+
+        ;; config files
+		(defwindow configs  :focusable "false" :screen 1 
+			    :geometry (geometry :x 722 :y 732 :width 205 :height 190)
+			     				(cfgs))
+
+		(defwindow background  :focusable "false" :screen 1 
+			    :geometry (geometry :x 240 :y 135 :width 1130 :height 598)
+			     				(bg))
+
+
+
+		;;  mail 
+		(defwindow mail  :focusable "false" :screen 1 
+			    :geometry (geometry :x 934 :y 753 :width 104 :height 42)
+			     				(mail))
+
+
+		;;  notifs 
+		(defwindow notifications  :focusable "false" :screen 1 
+			    :geometry (geometry :x 934 :y 890 :width 104 :height 42)
+			     				(notifications))
+
+
+		;;  power kiddies 
+		(defwindow power  :focusable "false" :screen 1 
+			    :geometry (geometry :x 934 :y 437 :width 104 :height 102)
+			     				(power_menu))
+
+
+		;;  socials but its 2  D: 
+		(defwindow socials_2  :focusable "false" :screen 1 
+			    :geometry (geometry :x 722 :y 929 :width 205 :height 90)
+			     				(socials_2))
