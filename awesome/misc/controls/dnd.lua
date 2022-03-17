@@ -20,6 +20,7 @@ local dnd = wibox.widget {
   },
   widget = wibox.container.background,
   bg = beautiful.bg_normal,
+  shape = helpers.rrect(beautiful.tooltip_box_border_radius),
 }
 
 helpers.add_hover_cursor(dnd, "hand1")

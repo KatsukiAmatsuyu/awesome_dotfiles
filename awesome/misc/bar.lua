@@ -16,6 +16,8 @@ local keys = require("main.keys")
 
 local volume = require("misc.volume")
 
+require "misc.power"
+
 -- Bar
 --------
 
@@ -104,6 +106,7 @@ awful.screen.connect_for_each_screen(function(s)
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		-- style = { shape = gears.shape.sircle },
+		style = { shape = helpers.rrect(beautiful.tooltip_box_border_radius) },
 		layout = {
 			spacing = 5,
 			-- spacing_widget = {
@@ -151,7 +154,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wifi
     local wifi = wibox.widget{
         markup = "",
-        font = beautiful.icon_font_name .. "Round 12",
+        font = beautiful.icon_font_name .. "Round 16",
         align = "center",
         valign = "center",
         widget = wibox.widget.textbox
@@ -202,9 +205,15 @@ awful.screen.connect_for_each_screen(function(s)
 		widget = wibox.widget.textbox
 	}
 
+	-- pbtn:buttons(gears.table.join(
+		-- awful.button({}, 1, function()
+			-- awful.spawn("sh /home/katsuki/scripts/rofi/launch.sh powermenu")
+		-- end)
+	-- ))
+
 	pbtn:buttons(gears.table.join(
 		awful.button({}, 1, function()
-			awful.spawn("sh /home/katsuki/scripts/rofi/launch.sh powermenu")
+			toggle_menu()
 		end)
 	))
 
@@ -213,11 +222,31 @@ awful.screen.connect_for_each_screen(function(s)
 		margins = dpi(8),
 		widget = wibox.container.margin
 	}
+
+	local dashb = wibox.widget {
+		markup = "",
+		align = "center",
+		valign = "center",
+		font = "Font Awesome 6 Free Solid 11",
+		widget = wibox.widget.textbox
+	}
+
+	dashb:buttons(gears.table.join(
+		awful.button({}, 1, function()
+			toggle_action()
+		end)
+	))
+
+	local dshb = wibox.widget {
+		dashb,
+		margins = 8,
+		widget = wibox.container.margin
+	}
 	
     -- Battery
     local batt = wibox.widget{
         markup = helpers.colorize_text("", beautiful.xcolor1),
-        font = beautiful.icon_font_name .. "Round 12",
+        font = beautiful.icon_font_name .. "Round 16",
         align = "center",
         valign = "center",
         widget = wibox.widget.textbox
@@ -352,17 +381,20 @@ awful.screen.connect_for_each_screen(function(s)
         {
             {
                 start,
+				taglist,
                 tasklist,
                 spacing = dpi(10),
                 layout = wibox.layout.fixed.vertical
             },
-			taglist,
+			nil,
             {
                 stats,
                 separator,
                 time,
                 separator,
                 layoutbox,
+				separator,
+				dshb,
 				separator,
 				powerbutton,
                 spacing = dpi(10),

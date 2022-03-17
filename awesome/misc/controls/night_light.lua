@@ -19,6 +19,7 @@ local night_light = wibox.widget {
   },
   widget = wibox.container.background,
   bg = beautiful.bg_normal,
+  shape = helpers.rrect(beautiful.tooltip_box_border_radius),
 }
 
 helpers.add_hover_cursor(night_light, "hand1")
@@ -26,15 +27,23 @@ helpers.add_hover_cursor(night_light, "hand1")
 local on = beautiful.bg_focus
 local off = beautiful.bg_normal
 local s = true
+
+local fd = io.popen("cat /home/katsuki/.config/awesome/rc.lua | grep 'theme =' | grep -Eo '[0-9]' | head -1")
+
 night_light:buttons {
   awful.button({}, 1, function()
-    s = not s
+	  if tonumber(fd:read("*all")) == 1 then s = false else s = true end
+	  fd:close()
     if s then
       night_light.bg = off
-      awful.spawn "pkill -USR1 redshift"
+      awful.spawn "/home/katsuki/.config/awesome/scripts/light"
+	  s = false
+	  awesome.restart()
     else
       night_light.bg = on
-      awful.spawn "pkill -USR1 redshift"
+      awful.spawn "/home/katsuki/.config/awesome/scripts/dark"
+	  s = true
+	  awesome.restart()
     end
   end),
 }

@@ -501,4 +501,10 @@ function helpers.set_titlebar(c, f)
     end
 end
 
+
+function colorize_icon(icon, color)
+    local tags = gears.color.recolor_image(icon, color)
+    return tags
+end
+
 return helpers

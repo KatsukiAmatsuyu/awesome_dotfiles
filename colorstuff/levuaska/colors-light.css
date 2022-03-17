@@ -1,0 +1,26 @@
+:root {
+    --wallpaper: url("/home/katsuki/wallpapers/cherry1.jpeg");
+
+    /* Special */
+    --background: #dae2f0;
+    --foreground: #0f0f17;
+    --cursor: #575268;
+
+    /* Colors */
+    --color0: #0f0f17;
+    --color1: #d7beda;
+    --color2: #131020;
+    --color3: #afbea2;
+    --color4: #d78787;
+    --color5: #e0b089;
+    --color6: #b8d6d3;
+    --color7: #f299e6;
+    --color8: #e4c9af;
+    --color9: #a1bdce;
+    --color10: #B5E8E0;
+    --color11: #858893;
+    --color12: #f2cdcd;
+    --color13: #575268;
+    --color14: #5B5F78;
+    --color15: #22242b;
+}

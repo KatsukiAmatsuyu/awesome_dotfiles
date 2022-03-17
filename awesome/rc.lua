@@ -16,6 +16,17 @@ local beautiful = require("beautiful")
 dpi = beautiful.xresources.apply_dpi
 beautiful.init(gfs.get_configuration_dir() .. "theme/theme.lua")
 
+-- Theme
+----------
+
+themes = {
+  "light",
+  "dark",
+}
+
+theme = themes[1]
+
+beautiful.init(gfs.get_configuration_dir() .. "theme/" .. theme .."/theme.lua")
 
 -- User vars
 --------------
@@ -46,6 +57,8 @@ require("misc")
 require("main")
 
 require("misc.action")
+
+require("signals")
 
 
 -- Autostart

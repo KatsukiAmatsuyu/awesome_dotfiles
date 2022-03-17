@@ -11,6 +11,7 @@ local bluetooth = wibox.widget {
       image = gears.filesystem.get_configuration_dir() .. "icons/bluetooth.svg",
       stylesheet = " * { stroke: " .. beautiful.fg_normal .. " }",
       forced_width = 25,
+	  forced_height = 25,
       valign = "center",
       halign = "center",
     },
@@ -19,6 +20,7 @@ local bluetooth = wibox.widget {
   },
   widget = wibox.container.background,
   bg = beautiful.bg_normal,
+  shape = helpers.rrect(beautiful.tooltip_box_border_radius),
 }
 
 helpers.add_hover_cursor(bluetooth, "hand1")

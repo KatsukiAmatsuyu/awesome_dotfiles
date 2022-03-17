@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Color
+sed -i "27s/.*/theme = themes[1]/g" ~/.config/awesome/rc.lua
+xrdb /home/katsuki/.Xresources_light
+
+sed -i "11s/dark/light/g" $HOME/.config/rofi/clean.rasi
+
+# sed -i "35s/dark/light/g" $HOME/.mozilla/firefox/ra41gmx6.default-release-1646229770928/chrome/userChrome.css
+
+# Gtk
+# sed -i "2s/.*/gtk-icon-theme-name=Mkos-Big-Sur/g" ~/.config/gtk-3.0/settings.ini
+# sed -i "4s/.*/gtk-theme-name=WhiteSur-light/g" ~/.config/gtk-3.0/settings.ini
+
+# Picom
+# sed -i "7s/.*/shadow-opacity = 0.05;/g" ~/.config/awesome/config/picom.conf
+
+# Spotify
+# spicetify config color_scheme white
+# spicetify update

@@ -10,7 +10,7 @@ local slider = wibox.widget {
   bar_color = beautiful.bg_focus,
   bar_active_color = beautiful.fg_normal,
   handle_shape = gears.shape.circle,
-  handle_color = beautiful.fg_minimize,
+  handle_color = beautiful.xforeground,
   handle_width = 12,
   value = 25,
   widget = wibox.widget.slider,
@@ -22,7 +22,7 @@ local bri_slider = wibox.widget {
   {
     widget = wibox.widget.imagebox,
     image = gears.filesystem.get_configuration_dir() .. "icons/sun.svg",
-    stylesheet = " * { stroke: " .. beautiful.fg_normal .. " }",
+    stylesheet = " * { stroke: " .. beautiful.xforeground .. " }",
     forced_width = 19,
     valign = "center",
     halign = "center",

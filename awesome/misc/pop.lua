@@ -98,7 +98,7 @@ awesome.connect_signal("signal::volume", function(value, muted)
 end)
 
 awesome.connect_signal("signal::brightness", function(value)
-    pop_icon.markup = ""
+    pop_icon.markup = ""
     pop_bar.value = value
     pop_bar.color = beautiful.pop_brightness_color
 

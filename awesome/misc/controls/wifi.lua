@@ -19,16 +19,19 @@ local wifi = wibox.widget {
   },
   widget = wibox.container.background,
   bg = beautiful.bg_focus,
+  shape = helpers.rrect(beautiful.tooltip_box_border_radius),
 }
 
 helpers.add_hover_cursor(wifi, "hand1")
 
-local on = beautiful.bg_focus
+local on = beautiful.xcolor4
 local off = beautiful.bg_normal
 local s = false -- off
 wifi:buttons {
   awful.button({}, 1, function()
-    s = not s
+	local fd = io.popen("nmcli n")
+	if tostring(fd:read("*all")) == "enabled" then s = true else s = false end
+	s = not s
     if s then
       wifi.bg = off
       awful.spawn "nmcli radio wifi off"

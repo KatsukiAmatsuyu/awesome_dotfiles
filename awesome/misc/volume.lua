@@ -16,7 +16,7 @@ local keys = require("main.keys")
 
 vol = wibox.widget{
 	markup = "",
-	font = beautiful.icon_font_name .. "Round 12",
+	font = beautiful.icon_font_name .. "Round 16",
 	align = "center",
 	valign = "center",
 	widget = wibox.widget.textbox
@@ -82,7 +82,7 @@ gears.timer {
 -- Tooltip widget
 
 music_text = wibox.widget{
-    markup = helpers.colorize_text("Nothing Playing", beautiful.xcolor8),
+    markup = helpers.colorize_text("Nothing Playing", beautiful.xforeground),
     font = beautiful.font_name .. "10",
     valign = "center",
     widget = wibox.widget.textbox
@@ -91,7 +91,7 @@ music_text = wibox.widget{
 music_art = wibox.widget {
     image = gears.filesystem.get_configuration_dir() .. "theme/assets/icons/no_music.png",
     resize = true,
-    opacity = 0.2,
+    opacity = 0.5,
     halign = "center",
     valign = "center",
     widget = wibox.widget.imagebox
@@ -105,7 +105,7 @@ music_title = wibox.widget{
 }
 
 music_artist = wibox.widget{
-    markup = helpers.colorize_text("No Artist", beautiful.xcolor8),
+    markup = helpers.colorize_text("No Artist", beautiful.xforeground),
     font = beautiful.font_name .. "11",
     valign = "center",
     widget = wibox.widget.textbox
@@ -193,15 +193,15 @@ playerctl:connect_signal("metadata", function(_, title, artist, album_path, __, 
 
     music_art:set_image(gears.surface.load_uncached(album_path))
     music_title:set_markup_silently(title)
-    music_artist:set_markup_silently(helpers.colorize_text(artist, beautiful.xcolor8))
+    music_artist:set_markup_silently(helpers.colorize_text(artist, beautiful.xforeground))
 end)
 
 playerctl:connect_signal("playback_status", function(_, playing, __)
     if playing then
-        music_text:set_markup_silently(helpers.colorize_text("Now Playing", beautiful.xcolor8))
+        music_text:set_markup_silently(helpers.colorize_text("Now Playing", beautiful.xforeground))
         music_status:set_markup_silently("")
     else
-        music_text:set_markup_silently(helpers.colorize_text("Music", beautiful.xcolor8))
+        music_text:set_markup_silently(helpers.colorize_text("Music", beautiful.xforeground))
         music_status:set_markup_silently("")
     end
 end)

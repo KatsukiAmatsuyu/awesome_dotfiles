@@ -38,7 +38,7 @@ URxvt.pointerBlank:               true
 ! URxvt.letterSpace: 4
 
 ! URxvt Extensions
-URxvt.perl-ext-common:            default,tabbedex,url-select,font-size,resize-font
+URxvt.perl-ext-common:            default,tabbedex,url-select,font-size,resize-font,config-reload
 
 URxvt.keysym.Control-Right:     font-size:increase
 URxvt.keysym.Control-Left:   font-size:decrease
@@ -56,37 +56,37 @@ URxvt.keysym.Control-End:         eval:scroll_to_bottom
 
 
 ! special
-*foreground:   #bfc9db
-*background:   #0f0f17
+*foreground:   #0f0f17
+*background:   [61]#dae2f0
 
 ! black
 *color0:       #13141c
 *color8:       #646a73
 
 ! red
-*color1:       #d78787
-*color9:       #d78787
+*color1:       #f25c5c
+*color9:       #f25c5c
 
 ! green
-*color2:       #afbea2
-*color10:      #afbea2
+*color2:       #189e00
+*color10:      #189e00
 
 ! yellow
-*color3:       e4c9af
-*color11:      #e4c9af
+*color3:       #d99f00
+*color11:      #d99f00
 
 ! blue
-*color4:       #a1bdce
-*color12:      #a1bdce
+*color4:       #004ab3
+*color12:      #004ab3
 
 ! magenta
-*color5:       #d7beda
-*color13:      #d7beda
+*color5:       #b22fc2
+*color13:      #b22fc2
 
 ! cyan
-*color6:       #b1e7dd
-*color14:      #b1e7dd
+*color6:       #00806c
+*color14:      #00806c
 
 ! white
-*color7:       #bfc9db
-*color15:      #858893#
+*color7:       #0f0f17
+*color15:      #0f0f17

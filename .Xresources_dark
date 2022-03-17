@@ -1,0 +1,92 @@
+
+Xcursor.theme: GoogleDot-Black
+
+Xcursor.size: 16
+
+! URxvt Configuration
+! URxvt.font:                       xft:RobotoMono Nerd Font Mono:size=12:autohint=true
+! URxvt.font: xft:RobotoMono Nerd Font:medium:size=12:antialias=true:minspace=False
+! URxvt.boldFont: xft:RobotoMono Nerd Font:bold:size=12:antialias=true:minspace=False
+! URxvt.italicFont: xft:RobotoMono Nerd Font:italic:size=12:antialias=true:minspace=False
+! URxvt.boldItalicFont: xft:RobotoMono Nerd Font:bold:italic:size=12:antialias=true:minspace=False
+URxvt.font: \
+            xft:FantasqueSansMono Nerd Font:antialias=true:size=14:minspace=False, \
+            xft:JetBrainsMono Nerd Font:antialias=true:size=12:minspace=False, \
+            xft:RobotoMono Nerd Font:antialias=true:size=12:minspace=False, \
+			xft:Source Han Sans JP:antialias=true:size=12:minspace=False, \
+            xft:UbuntuMono Nerd Font Mono:style=Regular:antialias=true:size=12:minspace=False, \
+            xft:SauceCodePro Nerd Font:style=Regular:antialias=true:size=12:minspace=False, \
+            xft:DejaVuSansMono Nerd Font:antialias=true:size=12:minspace=False, \
+            xft:DroidSansMono Nerd Font Mono:antialias=true:size=12, \
+            xft:FuraMono NF:size=12:antialias=true:minspace=False, \
+            xft:Noto Sans Mono:antialias=true:size=12:minspace=False, \
+            xft:Monospace:style=Medium:antialias=true:minspace=False
+URxvt.geometry:                   100x26
+URxvt.internalBorder:             20
+URxvt.cursorBlink:                true
+URxvt.cursorUnderline:            true
+URxvt.saveLines:                  8192
+URxvt.scrollBar:                  false
+URxvt.scrollBar_right:            true
+URxvt.scrollBar_floating:         false
+URxvt.scrollstyle:                plain
+URxvt.scrollWithBuffer:           false
+URxvt.urgentOnBell:               false
+URxvt.depth:                      32
+URxvt.iso14755:                   true
+URxvt.pointerBlank:               true
+! URxvt.letterSpace: 4
+
+! URxvt Extensions
+URxvt.perl-ext-common:            default,tabbedex,url-select,font-size,resize-font,config-reload
+
+URxvt.keysym.Control-Right:     font-size:increase
+URxvt.keysym.Control-Left:   font-size:decrease
+URxvt.keysym.Control-Shift-Right:   font-size:incglobal
+URxvt.keysym.Control-Shift-Left: font-size:decglobal
+URxvt.keysym.Control-equal:  font-size:reset
+URxvt.keysym.Control-slash:  font-size:show
+
+URxvt.keysym.Control-Shift-C:     eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V:     eval:paste_clipboard
+URxvt.keysym.Control-Up:          eval:scroll_up 1
+URxvt.keysym.Control-Down:        eval:scroll_down 1
+URxvt.keysym.Control-Home:        eval:scroll_to_top
+URxvt.keysym.Control-End:         eval:scroll_to_bottom
+
+
+! special
+*foreground:   #bfc9db
+*background:   [61]#0f0f17
+
+! black
+*color0:       #13141c
+*color8:       #646a73
+
+! red
+*color1:       #d78787
+*color9:       #d78787
+
+! green
+*color2:       #afbea2
+*color10:      #afbea2
+
+! yellow
+*color3:       #e4c9af
+*color11:      #e4c9af
+
+! blue
+*color4:       #a1bdce
+*color12:      #a1bdce
+
+! magenta
+*color5:       #d7beda
+*color13:      #d7beda
+
+! cyan
+*color6:       #b1e7dd
+*color14:      #b1e7dd
+
+! white
+*color7:       #bfc9db
+*color15:      #858893

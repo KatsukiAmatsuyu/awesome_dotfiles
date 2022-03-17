@@ -8,6 +8,7 @@ local theme_dir = gfs.get_configuration_dir() .. "theme/"
 local titlebar_dir = theme_dir .. "assets/titlebar/"
 local theme_assets = require("beautiful.theme_assets")
 local xrdb = require("beautiful.xresources").get_current_theme()
+local gfs = require('gears.filesystem')
 
 
 -- Theme
@@ -36,6 +37,15 @@ theme.transparent = "#00000000"
 
 ----------
 
+theme.batt_charging = "#b4fbf0"
+
+theme.music_icon = "/home/katsuki/.config/awesome/icons/bar/music.png"
+theme.ram = gfs.get_configuration_dir() .. "icons/bar/ram.png"
+theme.temp = gfs.get_configuration_dir() .. "icons/bar/temp.png"
+theme.cpu = gfs.get_configuration_dir() .. "icons/bar/cpu.png"
+theme.arc_bg = "#161719"
+theme.arc_color = "#6192FB"
+
 -- Wallpaper
 theme.wallpaper = theme_dir .. "assets/bruh.shades.png"
 -- theme.wallpaper = theme_dir .. "/home/katsuki/wallpapers/scene-1.jpg"
@@ -58,8 +68,8 @@ theme.bg_normal = theme.xbackground
 theme.bg_focus = theme.xbackground
 theme.bg_urgent = theme.xbackground
 theme.bg_minimize = theme.xbackground
-theme.bg_secondary = "#15181C"
-theme.bg_accent = "#1C1E24"
+theme.bg_secondary = "#1b1b25"
+theme.bg_accent = "#b8c9ea"
 
 -- Foregrounds
 theme.fg_normal = theme.xforeground
@@ -141,7 +151,7 @@ theme.tooltip_margin = dpi(15)
 theme.tooltip_box_margin = dpi(10)
 theme.tooltip_gap = dpi(10)
 theme.tooltip_border_radius = dpi(6)
-theme.tooltip_box_border_radius = dpi(3)
+theme.tooltip_box_border_radius = dpi(7)
 theme.tooltip_border_width = dpi(0)
 theme.tooltip_border_color = theme.xcolor0
 

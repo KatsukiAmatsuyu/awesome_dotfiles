@@ -61,135 +61,141 @@ end
 
 -- Wifi
 local wifi_text = wibox.widget{
-    markup = helpers.colorize_text("WiFi", beautiful.xcolor8),
-    font = beautiful.font_name .. "14",
-    widget = wibox.widget.textbox
-}
+		markup = helpers.colorize_text("WiFi", beautiful.xcolor15),
+		font = beautiful.font_name .. "14",
+		widget = wibox.widget.textbox
+	}
 
-local wifi_ssid = wibox.widget{
-    markup = "Offline",
-    font = beautiful.font_name .. "bold 20",
-    valign = "bottom",
-    widget = wibox.widget.textbox
-}
+	local wifi_ssid = wibox.widget{
+		markup = "Offline",
+		font = beautiful.font_name .. "bold 20",
+		valign = "bottom",
+		widget = wibox.widget.textbox
+	}
 
-local wifi = wibox.widget{
-    wifi_text,
-    nil,
-    wifi_ssid,
-    layout = wibox.layout.align.vertical
-}
+	local wifi = wibox.widget{
+		wifi_text,
+		nil,
+		wifi_ssid,
+		layout = wibox.layout.align.vertical
+	}
 
-awesome.connect_signal("signal::network", function(status, ssid)
-    wifi_ssid.markup = ssid
-end)
+	awesome.connect_signal("signal::network", function(status, ssid)
+		-- if ssid = "" then
+			-- wifi_ssid.markup = "Disconnected"
+		-- else
+			wifi_ssid.markup = ssid
+		-- end
+	end)
 
--- Volume 
--- local vol_text = wibox.widget{
-	-- markup = helpers.colorize_text("Volume", beautifu.xcolor8),
-	-- font = beautiful.font_name .. "10",
-	-- valign = "center",
-	-- widget = wibox.widget.textbox
--- }
+	-- Volume 
+	-- local vol_text = wibox.widget{
+		-- markup = helpers.colorize_text("Volume", beautifu.xcolor8),
+		-- font = beautiful.font_name .. "10",
+		-- valign = "center",
+		-- widget = wibox.widget.textbox
+	-- }
 
--- local vol_perc = wibox.widget{
-	-- markup = "N/A"
-	-- font = beautiful.font_name .. "bold 12",
-	-- valign = "center",
-	-- widget = wibox.widget.textbox
--- }
+	-- local vol_perc = wibox.widget{
+		-- markup = "N/A"
+		-- font = beautiful.font_name .. "bold 12",
+		-- valign = "center",
+		-- widget = wibox.widget.textbox
+	-- }
 
--- local vol = wibox.widget{
-	-- vol_text,
-	-- nil,
-	-- vol_perc,
-	-- layout = wibox.layout.align.vertical
--- }
+	-- local vol = wibox.widget{
+		-- vol_text,
+		-- nil,
+		-- vol_perc,
+		-- layout = wibox.layout.align.vertical
+	-- }
 
--- awesome.connect_signal("signal::volume", function(value, muted)
-	-- local vol_value = value or 0
-	-- local v = tostring(vol_value) + "%"
+	-- awesome.connect_signal("signal::volume", function(value, muted)
+		-- local vol_value = value or 0
+		-- local v = tostring(vol_value) + "%"
 
-	-- if muted then
-		-- v = "Muted"
-	-- end
+		-- if muted then
+			-- v = "Muted"
+		-- end
 
-	-- vol_perc.markup = v
--- end)
+		-- vol_perc.markup = v
+	-- end)
 
--- Battery
-local batt_text = wibox.widget{
-    markup = helpers.colorize_text("Battery", beautiful.xcolor8),
-    font = beautiful.font_name .. "14",
-    valign = "center",
-    widget = wibox.widget.textbox
-}
+	-- Battery
+	local batt_text = wibox.widget{
+		markup = helpers.colorize_text("Battery", beautiful.xcolor0),
+		font = beautiful.font_name .. "14",
+		valign = "center",
+		widget = wibox.widget.textbox
+	}
 
-local batt_perc = wibox.widget{
-    markup = "N/A",
-    font = beautiful.font_name .. "bold 18",
-    valign = "center",
-    widget = wibox.widget.textbox
-}
+	local batt_perc = wibox.widget{
+		markup = "N/A",
+		font = beautiful.font_name .. "bold 18",
+		valign = "center",
+		widget = wibox.widget.textbox
+	}
 
-local batt_bar = wibox.widget {
-    max_value = 100,
-    value = 20,
-    background_color = beautiful.transparent,
-    color = beautiful.xcolor0,
-    widget = wibox.widget.progressbar
-}
+	local batt_bar = wibox.widget {
+		max_value = 100,
+		value = 20,
+		background_color = beautiful.transparent,
+		color = beautiful.xcolor0,
+		widget = wibox.widget.progressbar
+	}
 
-local batt = wibox.widget{
-    batt_bar,
-    {
-        {
-            batt_text,
-            nil,
-            batt_perc,
-            -- spacing = dpi(5),
-            layout = wibox.layout.align.vertical
-        },
-        margins = beautiful.tooltip_box_margin,
-        widget = wibox.container.margin
-    },
-    layout = wibox.layout.stack
-}
+	local batt = wibox.widget{
+		batt_bar,
+		{
+			{
+				batt_text,
+				nil,
+				batt_perc,
+				-- spacing = dpi(5),
+				layout = wibox.layout.align.vertical
+			},
+			margins = beautiful.tooltip_box_margin,
+			widget = wibox.container.margin
+		},
+		layout = wibox.layout.stack
+	}
 
-local batt_val = 0
-local batt_charger
+	local batt_val = 0
+	local batt_charger
 
-awesome.connect_signal("signal::battery", function(value)
-    batt_val = value
-    awesome.emit_signal("widget::battery")
-end)
+	awesome.connect_signal("signal::battery", function(value)
+		batt_val = value
+		awesome.emit_signal("widget::battery")
+	end)
 
-awesome.connect_signal("signal::charger", function(state)
-    batt_charger = state
-    awesome.emit_signal("widget::battery")
-end)
+	awesome.connect_signal("signal::charger", function(state)
+		batt_charger = state
+		awesome.emit_signal("widget::battery")
+	end)
 
-awesome.connect_signal("widget::battery", function()
-    local b = batt_val
-    local fill_color = beautiful.bg_accent
+	awesome.connect_signal("widget::battery", function()
+		local b = batt_val
+		local fill_color = beautiful.bg_accent
+		local text_color = beautiful.xcolor0
 
-    if batt_charger then
-        fill_color = beautiful.xcolor2 .. "33"
-    else
-        if batt_val <= 15 then
-            fill_color = beautiful.xcolor1 .. "33"
-        end
-    end
+		if batt_charger then
+			fill_color = beautiful.batt_charging .. "99"
+		else
+			if batt_val <= 15 then
+				fill_color = beautiful.xcolor1 .. "33"
+				text_color = beautiful.xcolor2
+			end
+		end
 
-    batt_perc.markup = b .. "%"
-    batt_bar.value = b
-    batt_bar.color = fill_color
-end)
+		batt_perc.markup = helpers.colorize_text(b .. "%", text_color)
+		batt_bar.value = b
+		batt_bar.color = fill_color
+	end)
 
--- Music
-local wifi_boxed = create_boxed_widget(wifi, dpi(180), dpi(85), true)
-local batt_boxed = create_boxed_widget(batt, dpi(80), dpi(65))
-local music_boxed = create_boxed_widget(music, dpi(160), dpi(160))
+	-- Music
+	local wifi_boxed = create_boxed_widget(wifi, dpi(180), dpi(85), true)
+	local batt_boxed = create_boxed_widget(batt, dpi(80), dpi(65))
+	local music_boxed = create_boxed_widget(music, dpi(160), dpi(160))
 -- local vol_boxed = create_boxed_widget(vol, dpi(80), dpi(160))
 
 -- Stats
@@ -204,7 +210,7 @@ stats_tooltip = wibox({
     visible = false
 })
 
-awful.placement.bottom_left(stats_tooltip, {honor_workarea = true, margins = {left = dpi(14), bottom = dpi(109)}})
+awful.placement.bottom_left(stats_tooltip, {honor_workarea = true, margins = {left = dpi(14), bottom = dpi(210)}})
 
 stats_tooltip_show = function()
     stats_tooltip.visible = true
@@ -222,7 +228,7 @@ stats_tooltip:setup {
 				wifi_boxed,
                 layout = wibox.layout.fixed.vertical
             },
-            music_boxed,
+			music_boxed,
             layout = wibox.layout.fixed.horizontal
         },
         margins = beautiful.tooltip_margin,
@@ -239,7 +245,7 @@ stats_tooltip:setup {
 -- Date
 local date_day = wibox.widget{
     font = beautiful.font_name .. "14",
-    format = helpers.colorize_text("%A", beautiful.xcolor8),
+    format = helpers.colorize_text("%A", beautiful.xforeground),
     widget = wibox.widget.textclock
 }
 
@@ -332,7 +338,7 @@ cal_tooltip = wibox({
     visible = false
 })
 
-awful.placement.bottom_left(cal_tooltip, {honor_workarea = true, margins = {left = dpi(14), bottom = dpi(12)}})
+awful.placement.bottom_left(cal_tooltip, {honor_workarea = true, margins = {left = dpi(14), bottom = dpi(90)}})
 
 cal_tooltip_show = function()
     cal_tooltip.visible = true

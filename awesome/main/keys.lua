@@ -18,7 +18,8 @@ local helpers = require("helpers")
 
 local keys = {}
 
-local F = require("misc.action")
+require("misc.action")
+require("misc.power")
 
 
 -- Make key easier to call
@@ -249,13 +250,22 @@ keys.globalkeys = gears.table.join(
     end,
     {description = "Next music", group = "Misc"}),
 
+	-- Lockscreen
+	awful.key({mod, alt}, "l", function()
+		awful.spawn("betterlockscreen -l")
+	end),
+
 	-- Scripts
 	awful.key({mod}, "d", function()
 		awful.spawn("sh /home/katsuki/scripts/rofi/launch.sh appmenu")
 	end),
 
+	-- awful.key({mod, "Mod1"}, "c", function()
+		-- awful.spawn("sh /home/katsuki/scripts/rofi/launch.sh powermenu")
+	-- end),
+
 	awful.key({mod, "Mod1"}, "c", function()
-		awful.spawn("sh /home/katsuki/scripts/rofi/launch.sh powermenu")
+		toggle_menu()
 	end),
 
 	awful.key({mod, "Mod1"}, "x", function()
@@ -314,9 +324,9 @@ keys.globalkeys = gears.table.join(
 		awful.spawn("sh /home/katsuki/.config/eww/awesome/launch_eww")
 	end),
 
-	-- awful.key({mod}, "a", function()
-		-- F.toggle_action()
-	-- end, { description = "action center", group = "awesome" }),
+	awful.key({mod}, "a", function()
+		toggle_action()
+	end, { description = "action center", group = "awesome" }),
 
     -- Screenshot
     awful.key({mod}, "/", function()
