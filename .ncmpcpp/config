@@ -31,7 +31,7 @@ mpd_port = 6602
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /mnt/win/Music
+mpd_music_dir = /mnt/win/Music/dreamin
 #
 #mpd_crossfade_time = 5
 #

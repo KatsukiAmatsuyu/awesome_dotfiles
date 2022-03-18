@@ -24,7 +24,7 @@ themes = {
   "dark",
 }
 
-theme = themes[1]
+theme = themes[2]
 
 beautiful.init(gfs.get_configuration_dir() .. "theme/" .. theme .."/theme.lua")
 

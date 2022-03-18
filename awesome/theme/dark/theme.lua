@@ -16,7 +16,7 @@ local gfs = require('gears.filesystem')
 ----------
 
 -- Load ~/.Xresources colors
-theme.xbackground = "#0f0f1799"
+theme.xbackground = "#0f0f17"
 theme.xforeground = "#bfc9db"
 theme.xcolor0 = "#13141c"
 theme.xcolor1 = "#d78787"
@@ -26,7 +26,7 @@ theme.xcolor4 = "#a1bdce"
 theme.xcolor5 = "#d7beda"
 theme.xcolor6 = "#b1e7dd"
 theme.xcolor7 = "#bfc9db"
-theme.xcolor8 = "#646a7399"
+theme.xcolor8 = "#646a73"
 theme.xcolor9 = "#d78787"
 theme.xcolor10 = "#afbea2"
 theme.xcolor11 = "#e4c9af"

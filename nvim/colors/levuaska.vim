@@ -12,7 +12,7 @@ hi Special	    cterm=NONE	    	ctermfg=004
 hi Identifier   cterm=NONE	        ctermfg=004
 hi Statement    cterm=NONE		    ctermfg=003    
 hi PreProc	    cterm=NONE	    ctermfg=012	    
-hi Type	        cterm=NONE		    ctermfg=LightGreen	
+hi Type	        cterm=NONE		    ctermfg=002
 hi Function	    cterm=bold	    ctermfg=007       
 hi Repeat	    cterm=NONE	    ctermfg=007		
 hi Operator				            ctermfg=001			 
